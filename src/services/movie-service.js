@@ -20,7 +20,7 @@ export function saveMovie(movie) {
     delete body._id;
 
     toast.success(`The movie (${movie.title}) has been updated!`, {
-      //position:"top-center"
+      position:"top-center"
     });
 
     return http.put(movieUrl(movie._id), body);
