@@ -68,7 +68,7 @@ class MovieForm extends Form {
     }
     catch (err) {
       if (err.response && err.response.status > 400)
-        toast.error("400 - bad request");
+        toast.error("400 - bad request", { postion:"top-center"});
     }
   }
 

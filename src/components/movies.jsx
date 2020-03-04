@@ -118,7 +118,6 @@ getPagedData = () => {
 
     return (
       <div className="row" style={ this.styles }>
-
         <div className="col-2">
           <FilterList
             items={ this.state.genres }
