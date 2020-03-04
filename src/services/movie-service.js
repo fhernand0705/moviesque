@@ -1,13 +1,15 @@
 import http from './http-service';
-import { apiEndpoint } from '../config';
+import { apiUrl} from '../config';
 import { toast } from 'react-toastify';
 
+const apiEndpoint = apiUrl + "/movies";
+
 function movieUrl(id) {
-  return `${apiEndpoint}/movies/${id}`;
+  return `${apiEndpoint}/${id}`;
 }
 
 export function getMovies() {
-  return http.get(apiEndpoint + "/movies");
+  return http.get(apiEndpoint);
 }
 
 export function getMovie(movieId) {
@@ -25,7 +27,7 @@ export function saveMovie(movie) {
 
     return http.put(movieUrl(movie._id), body);
   }
-  return http.post(apiEndpoint + "/movies", movie);
+  return http.post(apiEndpoint, movie);
 }
 
 export function deleteMovie(movieId) {

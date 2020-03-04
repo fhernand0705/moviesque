@@ -1,8 +1,10 @@
 import http from './http-service';
-import { apiEndpoint } from '../config';
+import { apiUrl } from '../config';
+
+const apiEndpoint = apiUrl + "/users";
 
 export function createUser(user) {
-  return http.post(apiEndpoint + "/users", {
+  return http.post(apiEndpoint, {
     email: user.username,
     password: user.password,
     name: user.name
