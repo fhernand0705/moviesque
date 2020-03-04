@@ -5,7 +5,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
+import logger from "./services/error-log-service";
 
+logger.init();
 
 ReactDOM.render(
   <Router>
