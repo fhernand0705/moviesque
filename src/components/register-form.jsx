@@ -3,6 +3,7 @@ import Form from './common/form';
 import Joi from 'joi-browser';
 import { toast } from 'react-toastify';
 import * as userService from '../services/user-service';
+import auth from '../services/auth-service';
 
 class RegisterForm extends Form {
   state = {
@@ -22,15 +23,9 @@ class RegisterForm extends Form {
 
   doSubmit = async () => {
     try {
-      const { data: user, headers } = await                 userService.createUser(this.state.data);
-
-      toast.success(
-        `The user ${user.name} has been created!`,
-        {position:"top-center"
-      });
-      localStorage.setItem("token", headers['x-auth-token']);
-
-      this.props.history.push('/');
+      const { data: headers } = await userService.createUser(this.state.data);
+      auth.loginWithJwt(headers['x-auth-token']);
+      window.location = "/";
     }
     catch (err) {
       if (err.response && err.response.status === 400) {
