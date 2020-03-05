@@ -36,7 +36,6 @@ class MovieForm extends Form {
       if (movieId === "new") return;
 
       const { data: movie } = await getMovie(movieId);
-      console.log(movie.title)
       this.setState({ data: this.mapToViewModel(movie) });
     }
     catch (err) {
@@ -64,11 +63,12 @@ class MovieForm extends Form {
     try {
       const { data } = this.state;
       await saveMovie(data);
+      toast.success(`${data.title} was succesfully updated!`);
       this.props.history.push('/movies');
     }
     catch (err) {
-      if (err.response && err.response.status > 400)
-        toast.error("400 - bad request", { postion:"top-center"});
+      if (err.response && err.response.status === 400)
+        toast.error("400 - bad request");
     }
   }
 

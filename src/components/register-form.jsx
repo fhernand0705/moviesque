@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './common/form';
 import Joi from 'joi-browser';
-import { toast } from 'react-toastify';
 import * as userService from '../services/user-service';
 import auth from '../services/auth-service';
 

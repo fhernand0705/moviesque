@@ -1,6 +1,5 @@
 import http from './http-service';
 import { apiUrl} from '../config';
-import { toast } from 'react-toastify';
 
 const apiEndpoint = apiUrl + "/movies";
 
@@ -20,10 +19,6 @@ export function saveMovie(movie) {
   if (movie._id) {
     const body = {...movie};
     delete body._id;
-
-    toast.success(`The movie (${movie.title}) has been updated!`, {
-      position:"top-center"
-    });
 
     return http.put(movieUrl(movie._id), body);
   }
