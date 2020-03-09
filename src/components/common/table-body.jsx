@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import _ from 'lodash'
+import _ from 'lodash';
+import auth from '../../services/auth-service';
 
 class TableBody extends Component {
-  
+
   renderCell = (item, column) => {
+    const user = auth.getCurrentUser();
+
     if (column.content) return column.content(item)
 
     return _.get(item, column.path)

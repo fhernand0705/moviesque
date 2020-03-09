@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class TableHeader extends Component {
   styles = { cursor: 'pointer' }
 

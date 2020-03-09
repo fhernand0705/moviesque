@@ -104,7 +104,7 @@ getPagedData = () => {
 
   render() {
     const { length: movieCount, searchQuery } = this.state;
-
+    const { user } = this.props;
     const {
       pageSize,
       currentPage,
@@ -126,11 +126,15 @@ getPagedData = () => {
         </div>
 
         <div className="col">
-          <Link to='/movies/new'>
-            <button className="btn btn-primary" style={{ marginBottom: "1em"}}>
-              New Movie
-            </button>
-          </Link>
+          {user &&
+            <Link to='/movies/new'>
+              <button
+                className="btn btn-primary"
+                style={{ marginBottom: "1em"}}>
+                New Movie
+              </button>
+            </Link>
+          }
 
           <Search value={searchQuery} onChange={this.handleSearch} />
 

@@ -1,14 +1,22 @@
 import React from 'react';
-import 'font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Likes = ({ liked, onLike }) => {
-    let classes = 'fa'
-    if (!liked) classes += 'r fa-heart'
-    classes += ' fa-heart'
+
+    function renderHeart() {
+      if (!liked) {
+        return <FontAwesomeIcon icon={faHeart} onClick={ onLike }/>
+      }
+      return <i className='fa fa-heart' onClick={ onLike }></i>
+    }
 
     return (
-      <i className={ classes } onClick={ onLike }></i>
+      renderHeart()
     )
 }
+
+
+
 
 export default Likes
