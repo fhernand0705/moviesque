@@ -112,8 +112,6 @@ getPagedData = () => {
       sortColumn
     } = this.state;
 
-    if (movieCount === 0 ) return <h4>No movies in the database</h4>
-
     const { totalCount, data: movies } = this.getPagedData();
 
     return (
