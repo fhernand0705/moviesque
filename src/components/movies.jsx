@@ -136,7 +136,7 @@ getPagedData = () => {
 
           <Search value={searchQuery} onChange={this.handleSearch} />
 
-          <h4>There are { totalCount } movies on the list</h4>
+          <h4>{ totalCount } listed</h4>
           <MoviesTable
             movies={ movies }
             onLike={ this.handleLike }
