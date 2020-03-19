@@ -7,7 +7,7 @@ const Search = ({ value, onChange }) => {
         type="text"
         name="query"
         value={value}
-        placeholder="Search"
+        placeholder="Search movies..."
         onChange={(e) => onChange(e.currentTarget.value)}/>
     )
 }
